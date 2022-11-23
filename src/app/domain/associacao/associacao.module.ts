@@ -6,13 +6,15 @@ import { HeaderComponent } from './presentation/templates/header/header.componen
 import { FooterComponent } from './presentation/templates/footer/footer.component';
 import { MenuComponent } from './presentation/templates/layout/menu/menu.component';
 import { SharedModule } from '../shared/shared.module';
+import { MenuInicialComponent } from './components/menu-inicial/menu-inicial.component';
 
 @NgModule({
   declarations: [
     ButtonComponent,
     HeaderComponent,
     FooterComponent,
-    MenuComponent
+    MenuComponent,
+    MenuInicialComponent
   ],
   imports: [
     CommonModule,
