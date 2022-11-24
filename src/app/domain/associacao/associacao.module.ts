@@ -7,14 +7,11 @@ import { FooterComponent } from './presentation/templates/footer/footer.componen
 import { MenuComponent } from './presentation/templates/layout/menu/menu.component';
 import { SharedModule } from '../shared/shared.module';
 import { MenuInicialComponent } from './components/menu-inicial/menu-inicial.component';
+import { HomeComponent } from './presentation/pages/home/home.component';
 
 @NgModule({
   declarations: [
-    ButtonComponent,
-    HeaderComponent,
-    FooterComponent,
-    MenuComponent,
-    MenuInicialComponent
+    HomeComponent
   ],
   imports: [
     CommonModule,
@@ -22,4 +19,8 @@ import { MenuInicialComponent } from './components/menu-inicial/menu-inicial.com
     SharedModule
   ]
 })
-export class AssociacaoModule { }
+export class AssociacaoModule { 
+  constructor(){
+    console.log("AssociacaoModule")
+  }
+}
