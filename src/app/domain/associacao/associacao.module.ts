@@ -8,15 +8,34 @@ import { MenuComponent } from './presentation/templates/layout/menu/menu.compone
 import { SharedModule } from '../shared/shared.module';
 import { MenuInicialComponent } from './components/menu-inicial/menu-inicial.component';
 import { HomeComponent } from './presentation/pages/home/home.component';
+import { AutorizarTerminalComponent } from './components/autorizar-terminal/autorizar-terminal.component';
+import { CadastrarTerminalComponent } from './components/cadastrar-terminal/cadastrar-terminal.component';
+import { RealizarTransacaoComponent } from './components/realizar-transacao/realizar-transacao.component';
+import { ComprovanteTransacaoComponent } from './components/comprovante-transacao/comprovante-transacao.component';
+import { CancelarTransacaoComponent } from './components/cancelar-transacao/cancelar-transacao.component';
+import { PagamentoDebitoComponent } from './components/pagamento-debito/pagamento-debito.component';
+import { PagamentoCreditoComponent } from './components/pagamento-credito/pagamento-credito.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    AutorizarTerminalComponent,
+    CadastrarTerminalComponent,
+    RealizarTransacaoComponent,
+    ComprovanteTransacaoComponent,
+    CancelarTransacaoComponent,
+    PagamentoDebitoComponent,
+    PagamentoCreditoComponent,
   ],
   imports: [
     CommonModule,
     AssociacaoRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ]
 })
 export class AssociacaoModule { 

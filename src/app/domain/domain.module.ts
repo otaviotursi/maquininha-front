@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { DomainRoutes } from './domain.routing';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,
-    DomainRoutes
+    DomainRoutes,
   ]
 })
 export class DomainModule { }

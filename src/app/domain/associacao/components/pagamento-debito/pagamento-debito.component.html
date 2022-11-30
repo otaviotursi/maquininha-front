@@ -1,0 +1,35 @@
+
+
+    <div class="box">
+        <div class="card tamanho-maquina">
+            <div class="row mt-2 align-self-center">
+                <div class="col">
+                    <h2>{{ titulo }}</h2>
+                </div>
+                <div class="col">
+                    <div class="">
+                        <button type="button " class="btn btn-light" (click)="VoltarPagina()">Voltar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row card-body vertical-center mt-5"> <!-- usar tag alinhar-itens na classpara caso queira centralizar -->
+                <form [formGroup]="form" (ngSubmit)="SeguirOperacao()" novalidate>
+    
+                    <div class="">
+                        <div class="row mt-2">
+                            <input class="form-control" formControlName="numeroCartao" type="text" placeholder="Numero cartão" aria-label="default input example">
+                        </div>
+                        <div class="row mt-2">
+                            <input class="form-control" formControlName="senhaConta" type="text" placeholder="senha da conta" aria-label="default input example">
+                        </div>
+
+                        <div class="row mt-2">
+                            <input class="btn mt-1 btn-input" type="submit" value="Seguir com operação"
+                                [disabled]="!form.valid">
+                        </div>
+                    </div>
+    
+                </form>
+            </div>
+        </div>
+    </div>
