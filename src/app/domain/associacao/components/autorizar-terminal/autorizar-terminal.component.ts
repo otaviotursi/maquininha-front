@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { EventosPublicosFacadeService } from '../../abstraction/eventos-publicos-facade.service';
 
 @Component({
   selector: 'app-autorizar-terminal',
@@ -14,7 +15,12 @@ export class AutorizarTerminalComponent implements OnInit {
   titulo = "Autorizar Terminal";
   pagamentoUrl = "/cadastrarterminal";
   form?: any;
-  constructor(private location: Location, private router: Router, private formBuilder: FormBuilder) { }
+  constructor(
+    private location: Location, 
+    private router: Router, 
+    private formBuilder: FormBuilder,
+    private autorizaMaquina: EventosPublicosFacadeService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -25,5 +31,8 @@ export class AutorizarTerminalComponent implements OnInit {
 
   VoltarPagina(): void {
     this.location.back();
+  }
+  verificaStatusMaquina(){
+    this.autorizaMaquina.buscarStartusDaMaquina()
   }
 }

@@ -14,4 +14,7 @@ export class EventosPublicosCoreService {
   getEvetos():Observable<EventoInterface[]>{
     return this.http.get<EventoInterface[]>('http://localhost:44315')
   }
+  getStatusMaquina():Observable<boolean>{
+    return this.http.get<boolean>('')
+  }
 }

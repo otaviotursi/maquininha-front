@@ -12,4 +12,7 @@ export class EventosPublicosFacadeService {
   burcaEventos(){
     return this.eventosPublicosService.getEvetos()
   }
+  buscarStartusDaMaquina(){
+    return this.eventosPublicosService.getEvetos()
+  }
 }
