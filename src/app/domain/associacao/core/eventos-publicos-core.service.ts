@@ -31,30 +31,30 @@ export class EventosPublicosCoreService {
   // }
   postAutorizacaoTerminal(chave: string):Observable<boolean>{
     console.log("postAutorizacaoTerminal - chave: "+ chave)
-    //return this.http.post<boolean>(this.url+'/AutorizarTerminal', chave, httpOptions);
-    let teste = of(true);
-    return teste;
+    return this.http.post<boolean>(this.url+'/AutorizarTerminal', chave, httpOptions);
+    // let teste = of(true);
+    // return teste;
   }
   postPagarCredito(dadoCartaoCredito: CartaoCredito):Observable<Transacoes>{
     console.log("postPagarCredito - CartaoCredito: "+ dadoCartaoCredito)
-    // return this.http.post<Transacoes>(this.url+'/PagarCartaoCredito', dadoCartaoCredito, httpOptions);
-    let dadosTransacao = new Transacoes();
-    let teste = of(dadosTransacao);
-    return teste;
+    return this.http.post<Transacoes>(this.url+'/PagarCartaoCredito', dadoCartaoCredito, httpOptions);
+    // let dadosTransacao = new Transacoes();
+    // let teste = of(dadosTransacao);
+    // return teste;
   }
   postPagarDebito(dadoCartaoDebito: CartaoDebito):Observable<Transacoes>{
     console.log("postPagarDebito - CartaoDebito: "+ dadoCartaoDebito)
-    // return this.http.post<Transacoes>(this.url+'/PagarCartaoDebito', dadoCartaoDebito, httpOptions);
-    let dadosTransacao = new Transacoes();
-    let teste = of(dadosTransacao);
-    return teste;
+    return this.http.post<Transacoes>(this.url+'/PagarCartaoDebito', dadoCartaoDebito, httpOptions);
+    // let dadosTransacao = new Transacoes();
+    // let teste = of(dadosTransacao);
+    // return teste;
   }
   postCancelarTransacao(dadosTransacao: Transacoes): Observable<Recibo> {
-    console.log("postPagarDebito - CartaoDebito: "+ dadosTransacao)
-    // return this.http.post<Transacoes>(this.url+'/CancelarTransacao', dadosTransacao, httpOptions);
-    let recibo = new Recibo();
-    let teste = of(recibo);
-    return teste;
+    console.log("postCancelarTransacao - Cancelar Transacao: "+ dadosTransacao)
+    return this.http.post<Recibo>(this.url+'/CancelarTransacao', dadosTransacao, httpOptions);
+    // let recibo = new Recibo();
+    // let teste = of(recibo);
+    // return teste;
   }
 }
 
