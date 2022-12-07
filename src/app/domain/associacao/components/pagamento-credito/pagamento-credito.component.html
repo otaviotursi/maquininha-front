@@ -19,11 +19,11 @@
                             <input class="form-control" formControlName="nomeCartao" type="text" placeholder="Nome cartão">
                         </div>
                         <div class="row mt-2">
-                            <input class="form-control" formControlName="numeroCartao" type="text" placeholder="Numero cartão">
+                            <input class="form-control" formControlName="numeroCartao" type="text" placeholder="Numero cartão"  mask="0000 0000 0000 0000">
                         </div>
                         <div class="row mt-2">
-                            <input class="col form-control" formControlName="dataValidadeCartao" type="text" placeholder="Data validade">
-                            <input class="col form-control" formControlName="cvvCartao" type="text" placeholder="CVV">
+                            <input class="col form-control" formControlName="dataValidadeCartao" type="text" placeholder="Data validade (mm/yy)" mask="00/00">
+                            <input class="col form-control" formControlName="cvvCartao" type="text" placeholder="CVV"  mask="000">
                         </div>
                         <div class="row mt-2">
                             <input class="col-6 form-control" formControlName="numeroParcelas" type="text" placeholder="Numero Parcela">

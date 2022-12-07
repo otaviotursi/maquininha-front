@@ -17,6 +17,7 @@ import { PagamentoDebitoComponent } from './components/pagamento-debito/pagament
 import { PagamentoCreditoComponent } from './components/pagamento-credito/pagamento-credito.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgxMaskModule.forRoot(),
+
   ]
 })
 export class AssociacaoModule { 

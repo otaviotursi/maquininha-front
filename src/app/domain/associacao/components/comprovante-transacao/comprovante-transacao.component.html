@@ -14,14 +14,14 @@
             <div class="row card-body vertical-center mt-5">
                 <!-- usar tag alinhar-itens na classpara caso queira centralizar -->
     
-                <div class="">
+                <div class="comprovante-salvar">
                     <div class="row card" style="width: 18rem;">
     
-                        <h3 class="card-title">{{tipoTransacao}}</h3>
-                        <h4 class="card-subtitle mb-2 text-muted">{{dataTransacao}}</h4>
+                        <h3 class="card-title">{{statusTransacao}}</h3>
+                        <h4 class="card-subtitle mb-2 text-muted">{{dataTransacao | date: 'dd/MM/yyyy'}}</h4>
                         <p class="card-text">
-                            Tipo Pagamento: {{tipoPagamento}} - Valor total: {{valorTotal}}
-                            <br> Qnt parcela: {{qntParcela}} - Valor parcela: {{valorParcela}}
+                            Tipo Pagamento: {{tipoTransacao}}<br/>Valor total: {{valorTotal | currency: 'BRL'}}
+                            <br> Qnt parcela: {{qntParcela}}<br/>Valor parcela: {{valorParcela | currency: 'BRL'}}
                             <br> Nº Cartão: {{numeroCartao}}
                             <br> ID CENTRAL: {{idCentral}}
                             <br> ID BACEN: {{idBacen}}

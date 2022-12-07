@@ -21,14 +21,14 @@
                             <option value="2">Debito</option>
                         </select>
                     </div>
-                    <div class="row mt-1">
-                        <input type="text" class="form-control" placeholder="valor: 432"
-                            formControlName="valorTransacao">
-
-                    </div>
+                    <div class="input-group mb-3 mt-1">
+                        <span class="input-group-text" id="basic-addon1">R$</span>
+                        <input type="text" class="form-control" 
+                        formControlName="valorTransacao">
+                      </div>
                     <div class="row mt-2">
                         <input class="btn mt-1 btn-input" type="submit" value="Seguir com operação"
-                            [disabled]="!form.valid">
+                            >
                     </div>
 
                 </div>

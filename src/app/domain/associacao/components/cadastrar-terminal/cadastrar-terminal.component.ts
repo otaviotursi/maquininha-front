@@ -9,16 +9,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./cadastrar-terminal.component.scss']
 })
 export class CadastrarTerminalComponent implements OnInit {
-  statusResponse = "teste status";
+  statusResponse = false;
   titulo = "Autorizar Terminal";
   pagamentoUrl = "/";
   form?: any;
-  constructor(private location: Location, private router: Router, private formBuilder: FormBuilder) { }
+  constructor(private location: Location, private router: Router, private formBuilder: FormBuilder) {
+    this.statusResponse = this.router.getCurrentNavigation()?.extras?.state?.['status'];
+   }
 
   ngOnInit(): void {
   }
 
-  AutorizarTerminal(){
+  TelaInicial(){
     this.router.navigateByUrl(this.pagamentoUrl);
   }
 

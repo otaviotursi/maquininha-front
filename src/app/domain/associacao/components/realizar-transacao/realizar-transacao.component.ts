@@ -29,13 +29,12 @@ export class RealizarTransacaoComponent implements OnInit {
     let metodoPagamento = this.form.value.metodoPagamento;
     if(metodoPagamento == 2){
       this.pagamentoUrl = "/pagamentodebito";
-
     } else if(metodoPagamento == 1) {
       this.pagamentoUrl = "/pagamentocredito";
-
     }
-    this.router.navigateByUrl(this.pagamentoUrl);
+    this.router.navigateByUrl(this.pagamentoUrl,{state:{"valor": this.form.value.valorTransacao}});
   }
+  
 
   VoltarPagina(): void {
     this.location.back();
