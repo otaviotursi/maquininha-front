@@ -2,12 +2,28 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ExportToCsv } from 'export-to-csv';
+
+const optionsCSV = { 
+  fieldSeparator: ',',
+  quoteStrings: '"',
+  decimalSeparator: '.',
+  showLabels: true, 
+  showTitle: false,
+  title: '',
+  useTextFile: false,
+  useBom: true,
+  useKeysAsHeaders: true,
+  // headers: ['Column 1', 'Column 2', etc...] <-- Won't work with useKeysAsHeaders present!
+};
+
 
 @Component({
   selector: 'app-comprovante-transacao',
   templateUrl: './comprovante-transacao.component.html',
   styleUrls: ['./comprovante-transacao.component.scss']
 })
+
 export class ComprovanteTransacaoComponent implements OnInit {
   tipoTransacao = "credito/debito";
   statusTransacao = "Confirmação/Cancelamento"
@@ -62,8 +78,63 @@ export class ComprovanteTransacaoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  SalvarComprovante(){
+  SalvarComprovante(): void{
+  
+
+    var data = [
+      {
+        StatusTransacao: this.statusTransacao,
+        TipoTransacao: this.tipoTransacao,
+        DataTransacao: this.dataTransacao,
+        ValorTotal: "R$: "+this.valorTotal,
+        QntParcels: this.qntParcela,
+        ValorParcela: "R$: "+this.valorParcela,
+        NumeroFimCartao: "**** "+this.numeroCartao,
+        idBacen: this.idBacen,
+        idCentral: this.idCentral,
+      }
+    ];
+    console.log('SalvarComprovante'+data[0].StatusTransacao);
+    console.log('SalvarComprovante'+data[0].TipoTransacao);
+    console.log('SalvarComprovante'+data[0].DataTransacao);
+    console.log('SalvarComprovante'+data[0].ValorTotal);
+    console.log('SalvarComprovante'+data[0].QntParcels);
+    console.log('SalvarComprovante'+data[0].ValorParcela);
+    console.log('SalvarComprovante'+data[0].NumeroFimCartao);
+    console.log('SalvarComprovante'+data[0].idBacen);
+    console.log('SalvarComprovante'+data[0].idCentral);
+    const csvExporter = new ExportToCsv(optionsCSV);
+ 
+    csvExporter.generateCsv(data);
+
+    
+
     this.router.navigateByUrl(this.pagamentoUrl);
+  }
+
+  ConvertToCSV(objArray: any): string {
+      var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+      var str = '';
+      var row = "";
+  
+      for (var index in objArray[0]) {
+          //Now convert each value to string and comma-separated
+          row += index + ',';
+      }
+      row = row.slice(0, -1);
+      //append Label row with line break
+      str += row + '\r\n';
+  
+      for (var i = 0; i < array.length; i++) {
+          var line = '';
+          for (var index in array[i]) {
+              if (line != '') line += ','
+  
+              line += array[i][index];
+          }
+          str += line + '\r\n';
+      }
+      return str;
   }
 
   VoltarPagina(): void {
